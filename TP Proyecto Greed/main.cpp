@@ -10,12 +10,12 @@ int main()
 
     do
     {
-    system("cls");
+    system("cls"); ///Limpia la pantalla cada vez que se vuelve al menu
 
     opcion = seleccionMenu();
     opcionElegida(opcion);
 
-    system("pause");
+    system("pause"); /// hace una pausa antes de finalizar o reiniciar
     }
     while(opcion != 0);
 

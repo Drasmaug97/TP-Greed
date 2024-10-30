@@ -23,8 +23,6 @@ return opcion;
 
 void opcionElegida(int opcion){
 
-    opcion = seleccionMenu();
-
     switch (opcion){
     case 1:
         unJugador();

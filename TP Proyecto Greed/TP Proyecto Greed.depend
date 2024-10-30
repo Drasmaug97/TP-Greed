@@ -1,19 +1,19 @@
 # depslib dependency file v1.0
-1730162959 source:c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\menu.cpp
+1730220849 source:c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\menu.cpp
 	<iostream>
 	"menu.h"
 	"theGame.h"
 
 1730159528 c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\menu.h
 
-1730162345 source:c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\main.cpp
+1730217890 source:c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\main.cpp
 	<iostream>
 	<ctime>
 	"menu.h"
 
-1730161782 source:c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\thegame.cpp
+1730214751 source:c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\thegame.cpp
 	<iostream>
 	"theGame.h"
 
-1730163502 c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\thegame.h
+1730221628 c:\users\usuario\desktop\faq\programacion 1\tp proyecto greed\thegame.h
 
