@@ -22,7 +22,7 @@ return opcion;
 }
 
 void opcionElegida(int opcion){
-
+    system("cls");
     switch (opcion){
     case 1:
         unJugador();
@@ -35,7 +35,7 @@ void opcionElegida(int opcion){
         creditos();
         break;
     case 0:
-        cout << "Esto es todo amigos!!" << endl;
+        cout << "---Esto es todo amigos!!!---" << endl;
         break;
     }
 };

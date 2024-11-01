@@ -9,18 +9,21 @@ void unJugador(){
     cout << "-----Modo: Un Jugador------" << endl;
     cout << endl;
     pedirNombre();
+    int dadoBloqueado1, dadoBloqueado2, puntosRonda;
+    int dadosNormales [5]{};
+    bool respuesta;
+    calcularDadosBloqueados(); ///Transformarlo a un int
     do
     {
     cout << endl << "-------Ronda Nro: " << ronda << "-------" << endl;
-    int dadoBloqueado1, dadoBloqueado2;
-    int dadosNormales [5]{};
-    calcularDadosBloqueados();
     calcularDadosNormales (dadosNormales, 5);
-    mostrarDados(dadosNormales, 5);
-    sumarDados(dadoBloqueado1, dadoBloqueado2, dadosNormales, 5);
+    mostrarDados(dadosNormales, 5); /// Agregar los dados bloqueados
+    puntosRonda = sumarDados(dadoBloqueado1, dadoBloqueado2, dadosNormales, 5);
+    cout << "Los puntos de la ronda son: " << puntosRonda << endl;
+    respuesta = seguirJugando();
     ronda++;
     }
-    while(ronda != 4);
+    while(respuesta == true);
 };
 void pedirNombre(){
     string nombre;
@@ -31,13 +34,14 @@ void pedirNombre(){
 int tirarDados(){
     return rand() % 6 + 1;
 };
-void calcularDadosBloqueados(){ ///Generadores de los dados bloqueados
+int calcularDadosBloqueados(){ ///Generadores de los dados bloqueados
         int dadoBloqueado1, dadoBloqueado2;
         dadoBloqueado1 = tirarDados();
         dadoBloqueado2 = tirarDados();
         cout << "Los dados bloqueados son: ";
         cout << dadoBloqueado1 << " y " << dadoBloqueado2;
         cout << endl;
+        return dadoBloqueado1 && dadoBloqueado2;
 };
 
 void calcularDadosNormales(int dadosNormales[], int cantidad){ ///Generador de los dados que se van a jugar
@@ -54,15 +58,27 @@ void mostrarDados( int dadosNormales[], int cantidad){ ///Muestra los dados tant
     }
     cout << endl;
 };
-void sumarDados(int dadoBloquado1,int dadoBloquado2, int dadosNormales[], int cantidad){ ///No funciona todavia
+int sumarDados(int dadoBloqueado1,int dadoBloqueado2, int dadosNormales[], int cantidad){ ///Suma todos los dados, hay que discriminar los bloqueados
     int i,puntosRonda=0;
     for (i=0; i<cantidad; i++){
-        if (dadosNormales[i] == dadoBloquado1 || dadosNormales[i] == dadoBloquado2){
-            dadosNormales[i] = 0;
+        if (dadosNormales[i] != dadoBloqueado1 && dadosNormales[i] != dadoBloqueado2){
+            puntosRonda += dadosNormales[i];
         }
-        puntosRonda += dadosNormales[i];
     }
-    cout << "La suma total de dados es de " << puntosRonda << endl;
+    return puntosRonda;
+};
+bool seguirJugando(){
+    bool respuesta = true;
+    string seguir;
+    cout << "¿Seguir jugando? (S o N)";
+    cin >> seguir;
+    if (seguir == "S"){
+        respuesta = true;
+    }
+    else if (seguir == "N"){
+        respuesta = false;
+    }
+    return respuesta;
 };
 void creditos(){ /// Nada mas que los creditos del juego, es decir, quienes lo programaron
     cout << "MUCHAS GRACIAS POR JUGAR NUESTRO JUEGO" << endl;
